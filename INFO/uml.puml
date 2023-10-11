@@ -1,0 +1,33 @@
+@startuml
+class com.example.app.SpringBootWebClients.WebClientsApplicationTests {
+~ void contextLoads()
+}
+interface com.example.app.SpringBootWebClients.repository.ClientRepository {
+~ List<Client> findAll()
+}
+class com.example.app.SpringBootWebClients.WebClientsApplication {
+- {static} Logger LOGGER
++ {static} void main(String[])
+}
+class com.example.app.SpringBootWebClients.controller.HomeController {
+~ ClientService service
++ String getHome(Model)
+}
+class com.example.app.SpringBootWebClients.entity.Client {
+- int id
+- String img
+- String firstName
+- String lastName
+- String phone
+}
+class com.example.app.SpringBootWebClients.utils.Constants {
++ {static} String URL_IMAGE
+}
+class com.example.app.SpringBootWebClients.service.ClientService {
+~ ClientRepository repository
++ List<Client> getClients()
+}
+
+
+org.springframework.data.repository.CrudRepository <|-- com.example.app.SpringBootWebClients.repository.ClientRepository
+@enduml
